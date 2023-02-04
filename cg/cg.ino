@@ -117,7 +117,7 @@ void loop() {
       analogWrite(PWM_motCD,190); 
       digitalWrite(motorC,HIGH);
       digitalWrite(motorD,LOW);
-      delay(2000);
+      delay(20);
   }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 >= hA3){
       //B B B B 謎
         if(flag == 0){
