@@ -52,10 +52,25 @@ void loop() {
      digitalWrite(motorC,LOW);
      digitalWrite(motorD,HIGH);
      delay(1000);
-     nalogWrite(PWM_motAB,235); 
+     analogWrite(PWM_motAB,0); 
+     digitalWrite(motorA,LOW);
+     digitalWrite(motorB,HIGH);
+     analogWrite(PWM_motCD,0); 
+     digitalWrite(motorC,LOW);
+     digitalWrite(motorD,HIGH);
+     delay(1000);
+     analogWrite(PWM_motAB,235); 
      digitalWrite(motorA,HIGH);
      digitalWrite(motorB,LOW);
      analogWrite(PWM_motCD,190); 
      digitalWrite(motorC,HIGH);
      digitalWrite(motorD,LOW);
+     delay(1000);
+     analogWrite(PWM_motAB,-100); 
+     digitalWrite(motorA,LOW);
+     digitalWrite(motorB,LOW);
+     analogWrite(PWM_motCD,-190); 
+     digitalWrite(motorC,LOW);
+     digitalWrite(motorD,LOW);
+     delay(1000);
 }
