@@ -22,8 +22,11 @@ pinMode(motorA,OUTPUT);
 pinMode(motorB,OUTPUT); 
 pinMode(motorC,OUTPUT); 
 pinMode(motorD,OUTPUT); 
+<<<<<<< HEAD
 pinMode(PWM_motAB,OUTPUT); 
 pinMode(PWM_motCD,OUTPUT); 
+=======
+>>>>>>> 9963b8ba1b922f605ef4d996eebe30996facaffe
 Serial.begin(9600);
 }
 
