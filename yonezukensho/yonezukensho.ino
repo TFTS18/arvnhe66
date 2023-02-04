@@ -21,5 +21,5 @@ void loop(){
   delay(1000);
   digitalWrite(motorA,HIGH);
   digitalWrite(motorB,LOW);
-  delay(1000)
+  delay(1000);
 }
