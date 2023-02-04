@@ -10,14 +10,17 @@ void setup(){
   pinMode(motorB,OUTPUT); //信号用ピン
   pinMode(motorC,OUTPUT); //信号用ピン
   pinMode(motorD,OUTPUT); //信号用ピン
+  pinMode(PWM_motAB,OUTPUT); 
+  pinMode(PWM_motCD,OUTPUT); 
 }
 
 void loop(){
   //全てのモータを停止
-  digitalWrite(motorA,LOW);
+  digitalWrite(motorA,HIGH);
   digitalWrite(motorB,LOW);
-  digitalWrite(motorC,LOW);
+  digitalWrite(motorC,HIGH);
   digitalWrite(motorD,LOW);
+  delay(1000);
   delay(1000);
   digitalWrite(motorA,HIGH);
   digitalWrite(motorB,LOW);
@@ -31,21 +34,8 @@ void loop(){
   analogWrite(PWM_motAB,100); 
   delay(500);
   digitalWrite(motorA,LOW);
-  digitalWrite(motorB,LOW);
-  
-  delay(1000);
-  digitalWrite(motorC,LOW);
-  digitalWrite(motorD,LOW);
-  delay(500);
-  digitalWrite(motorC,HIGH);
-  digitalWrite(motorD,LOW);
-  analogWrite(PWM_motCD,100); 
-  delay(500);
-  digitalWrite(motorC,LOW);
-  digitalWrite(motorD,LOW);
-  delay(500);
+  digitalWrite(motorB,HIGH);
   digitalWrite(motorC,LOW);
   digitalWrite(motorD,HIGH);
-  analogWrite(PWM_motCD,100); 
-  delay(500);
+  delay(1000);
 }

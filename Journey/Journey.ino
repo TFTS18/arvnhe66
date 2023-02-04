@@ -8,7 +8,7 @@ int vA1 = 0;
 int vA2 = 0;
 int vA3 = 0;
 const int motorA = 11;
-const int motorB = 190;
+const int motorB = 19;
 const int PWM_motAB = 6;
 const int motorC = 9;
 const int motorD = 8;
@@ -22,11 +22,8 @@ pinMode(motorA,OUTPUT);
 pinMode(motorB,OUTPUT); 
 pinMode(motorC,OUTPUT); 
 pinMode(motorD,OUTPUT); 
-<<<<<<< HEAD
 pinMode(PWM_motAB,OUTPUT); 
 pinMode(PWM_motCD,OUTPUT); 
-=======
->>>>>>> 9963b8ba1b922f605ef4d996eebe30996facaffe
 Serial.begin(9600);
 }
 
