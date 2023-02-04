@@ -22,10 +22,6 @@ pinMode(motorA,OUTPUT);
 pinMode(motorB,OUTPUT); 
 pinMode(motorC,OUTPUT); 
 pinMode(motorD,OUTPUT); 
-pinMode(13,OUTPUT);
-pinMode(PWM_motAB,OUTPUT); 
-pinMode(PWM_motCD,OUTPUT); 
-pinMode(13,OUTPUT);
 Serial.begin(9600);
 }
 
