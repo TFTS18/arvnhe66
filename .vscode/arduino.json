@@ -2,5 +2,5 @@
     "board": "arduino:avr:uno",
     "port": "COM3",
     "output": "../ArduinoOutput",
-    "sketch": "cg\\cg.ino"
+    "sketch": "kansokuman\\kansokuman.ino"
 }
