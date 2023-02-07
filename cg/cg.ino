@@ -7,12 +7,12 @@ int TINPO = 0;
 int vA1 = 0;
 int vA2 = 0;
 int vA3 = 0;
-const int motorA = 8;
-const int motorB = 6;
-const int PWM_motAB = 9;
-const int motorC = 10;
-const int motorD = 5;
-const int PWM_motCD = 11;
+const int motorA = 11;
+const int motorB = 10;
+const int PWM_motAB = 6;
+const int motorC = 9;
+const int motorD = 8;
+const int PWM_motCD = 5;
 int hA2 = 300;
 int hA1 = 300;
 int hA3 = 300;
@@ -73,60 +73,53 @@ void loop() {
       analogWrite(PWM_motCD,0); 
       digitalWrite(motorC,HIGH);
       digitalWrite(motorD,LOW);
-      delay(1600);
+      delay(998);
     }else if(vA0 < hA0 && vA1 < hA1 && vA2 >= hA2 && vA3 >= hA3){
       //W W B B ┤右折
       analogWrite(PWM_motAB,235); 
       digitalWrite(motorA,HIGH);
       digitalWrite(motorB,LOW);
-      analogWrite(PWM_motCD,0); 
-      digitalWrite(motorC,HIGH);
-      digitalWrite(motorD,LOW);
-      delay(1600);
+      analogWrite(PWM_motCD,190); 
+      digitalWrite(motorC,LOW);
+      digitalWrite(motorD,HIGH);
+      delay(998);
   }else if(vA0 < hA0 && vA1 >= hA1 && vA2 < hA2 && vA3 < hA3){
       //w b w w 左折
       analogWrite(PWM_motAB,0);   
-      digitalWrite(motorA,HIGH);
-      digitalWrite(motorB,LOW);
+      digitalWrite(motorA,LOW);
+      digitalWrite(motorB,HIGH);
       analogWrite(PWM_motCD,190); 
       digitalWrite(motorC,HIGH);
       digitalWrite(motorD,LOW);
   }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 < hA3){
       //B B B W ┤左折
-      analogWrite(PWM_motAB,0); 
-      digitalWrite(motorA,HIGH);
-      digitalWrite(motorB,LOW);
+      analogWrite(PWM_motAB,235); 
+      digitalWrite(motorA,LOW);
+      digitalWrite(motorB,HIGH);
       analogWrite(PWM_motCD,190); 
       digitalWrite(motorC,HIGH);
       digitalWrite(motorD,LOW);
-      delay(1600);
+      delay(998);
   }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 < hA2 && vA3 < hA3){
       //B B W W ┤左折
       analogWrite(PWM_motAB,0); 
-      digitalWrite(motorA,HIGH);
-      digitalWrite(motorB,LOW);
+      digitalWrite(motorA,LOW);
+      digitalWrite(motorB,HIGH);
       analogWrite(PWM_motCD,190); 
       digitalWrite(motorC,HIGH);
       digitalWrite(motorD,LOW);
-      delay(1600);
+      delay(998);
   }else if(vA0 < hA0 && vA1 < hA1 && vA2 < hA2 && vA3 < hA3){
       //w w w w
       //現在調査中　適当なプログラムを入れている
       analogWrite(PWM_motAB,235); 
-      digitalWrite(motorA,HIGH);
-      digitalWrite(motorB,LOW);
+      digitalWrite(motorA,LOW);
+      digitalWrite(motorB,HIGH);
       analogWrite(PWM_motCD,190); 
       digitalWrite(motorC,HIGH);
       digitalWrite(motorD,LOW);
   }else{
       delay(1);
   }
-      delay(10);
-      analogWrite(PWM_motAB,235); 
-      digitalWrite(motorA,HIGH);
-      digitalWrite(motorB,LOW);
-      analogWrite(PWM_motCD,190); 
-      digitalWrite(motorC,HIGH);
-      digitalWrite(motorD,LOW);
-      delay(10);
+  delay(20);
 }
