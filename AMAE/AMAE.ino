@@ -42,7 +42,7 @@ void loop() {
   }else{
     TINPO = TINPO + 1;
   }
-  //モーター 左6　右9
+  //モーター 左11　右9
   if (vA0 < hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 < hA3){
     //0白1黒2黒3白　
      analogWrite(11,235); 
