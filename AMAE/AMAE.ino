@@ -68,7 +68,7 @@ void loop() {
       analogWrite(9,195); 
       digitalWrite(5,LOW);
       digitalWrite(8,HIGH);
-      delay(999);
+      delay(200);
     }else if(vA0 < hA0 && vA1 < hA1 && vA2 >= hA2 && vA3 >= hA3){
       //W W B B ┤右折
       analogWrite(11,235); 
@@ -77,7 +77,7 @@ void loop() {
       analogWrite(9,195); 
       digitalWrite(5,LOW);
       digitalWrite(8,HIGH);
-      delay(999);
+      delay(200);
   }else if(vA0 < hA0 && vA1 >= hA1 && vA2 < hA2 && vA3 < hA3){
       //w b w w 左折
       analogWrite(11,0);   
@@ -94,7 +94,7 @@ void loop() {
       analogWrite(9,195); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
-      delay(999);
+      delay(200);
   }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 < hA2 && vA3 < hA3){
       //B B W W ┤左折
       analogWrite(11,235); 
@@ -103,7 +103,7 @@ void loop() {
       analogWrite(9,195); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
-      delay(999);
+      delay(200);
   }else if(vA0 < hA0 && vA1 < hA1 && vA2 < hA2 && vA3 < hA3){
       //w w w w
       //現在調査中　適当なプログラムを入れている
