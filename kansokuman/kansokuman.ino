@@ -26,11 +26,7 @@ Serial.begin(9600);
 }
 
 void loop() {
-     analogWrite(11,190); 
-     digitalWrite(10,HIGH);
-     digitalWrite(5,LOW);
-     analogWrite(9,235); 
-     digitalWrite(8,HIGH);
-     digitalWrite(6,LOW);
-     delay(1000);
+  analogWrite(5,100);
+  delay(100);
+  digitalWrite(8,HIGH);
 }
