@@ -3,6 +3,7 @@
 //モーター 右は9 左はmotAB
 //vAxはセンサー　hAxは閾値
 int vA0 = 0;
+int MANKO = 0;
 int TINPO = 0;
 int vA1 = 0;
 int vA2 = 0;
@@ -67,7 +68,7 @@ void loop() {
       analogWrite(9,195); 
       digitalWrite(5,LOW);
       digitalWrite(8,HIGH);
-      delay(1600);
+      delay(999);
     }else if(vA0 < hA0 && vA1 < hA1 && vA2 >= hA2 && vA3 >= hA3){
       //W W B B ┤右折
       analogWrite(11,235); 
@@ -76,7 +77,7 @@ void loop() {
       analogWrite(9,195); 
       digitalWrite(5,LOW);
       digitalWrite(8,HIGH);
-      delay(1600);
+      delay(999);
   }else if(vA0 < hA0 && vA1 >= hA1 && vA2 < hA2 && vA3 < hA3){
       //w b w w 左折
       analogWrite(11,0);   
@@ -93,7 +94,7 @@ void loop() {
       analogWrite(9,195); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
-      delay(1600);
+      delay(999);
   }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 < hA2 && vA3 < hA3){
       //B B W W ┤左折
       analogWrite(11,235); 
@@ -102,7 +103,7 @@ void loop() {
       analogWrite(9,195); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
-      delay(1600);
+      delay(999);
   }else if(vA0 < hA0 && vA1 < hA1 && vA2 < hA2 && vA3 < hA3){
       //w w w w
       //現在調査中　適当なプログラムを入れている
@@ -112,6 +113,28 @@ void loop() {
       analogWrite(9,195); 
       digitalWrite(5,LOW);
       digitalWrite(8,HIGH);
+  }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 >= hA3){
+      //B B B B ここポイント
+      if(MANKO == 0){
+        analogWrite(11,0); 
+        digitalWrite(6,LOW);
+        digitalWrite(10,LOW);
+        analogWrite(9,0); 
+        digitalWrite(5,LOW);
+        digitalWrite(8,LOW);  
+        MANKO = 1;
+        delay(5000);
+      }else if(MANKO == 1){
+        analogWrite(11,235); 
+        digitalWrite(6,LOW);
+        digitalWrite(10,HIGH);
+        analogWrite(9,195); 
+        digitalWrite(5,LOW);
+        digitalWrite(8,HIGH);  
+        delay(1000);
+        MANKO = 2;
+      }else{
+      }
   }else{
       delay(1);
   }
