@@ -1,26 +1,20 @@
-//モーター 右はPWM_motCD 左はmotAB
+//モーター 右は9 左はmotAB
 //vAxはセンサー　hAxは閾値
 int vA0 = 0;
 int TINPO = 0;
 int vA1 = 0;
 int vA2 = 0;
 int vA3 = 0;
-const int motorA = 11;
-const int motorB = 180;
-const int PWM_motAB = 6;
-const int motorC = 9;
-const int motorD = 8;
-const int PWM_motCD = 5;
 int hA2= 300;
 int hA1 = 300;
 void setup(){
-pinMode(motorA,OUTPUT); 
-pinMode(motorB,OUTPUT); 
-pinMode(motorC,OUTPUT); 
-pinMode(motorD,OUTPUT); 
+pinMode(11,OUTPUT); 
+pinMode(10,OUTPUT); 
+pinMode(5,OUTPUT); 
+pinMode(8,OUTPUT); 
 pinMode(13,OUTPUT);
-pinMode(PWM_motAB,OUTPUT); 
-pinMode(PWM_motCD,OUTPUT); 
+pinMode(6,OUTPUT); 
+pinMode(9,OUTPUT); 
 pinMode(13,OUTPUT);
 Serial.begin(9600);
 }
@@ -49,44 +43,44 @@ void loop() {
   //モーター 右AB左CD
   if (vA1 >= hA1 && vA2 >= hA2){
     //左、右ともに黒なら直進
-    analogWrite(PWM_motAB,235); 
-    digitalWrite(motorA,HIGH);
-    digitalWrite(motorB,LOW);
-    analogWrite(PWM_motCD,180); 
-    digitalWrite(motorC,HIGH);
-    digitalWrite(motorD,LOW);
+    analogWrite(6,235); 
+    digitalWrite(11,HIGH);
+    digitalWrite(10,LOW);
+    analogWrite(9,180); 
+    digitalWrite(5,HIGH);
+    digitalWrite(8,LOW);
   }else if(vA1 < hA1 && vA2 >= hA2){
     //左が黒、右が白ならに右へ旋回
-    analogWrite(PWM_motAB,235); 
-    digitalWrite(motorA,HIGH);
-    digitalWrite(motorB,LOW);
-    analogWrite(PWM_motCD,0); 
-    digitalWrite(motorC,HIGH);
-    digitalWrite(motorD,LOW);
+    analogWrite(6,235); 
+    digitalWrite(11,HIGH);
+    digitalWrite(10,LOW);
+    analogWrite(9,0); 
+    digitalWrite(5,HIGH);
+    digitalWrite(8,LOW);
   }else if(vA1 >= hA1 && vA2 < hA2){
     //左が白、右が黒ならに左へ旋回
-    analogWrite(PWM_motAB,0);   
-    digitalWrite(motorA,HIGH);
-    digitalWrite(motorB,LOW);
-    analogWrite(PWM_motCD,180); 
-    digitalWrite(motorC,HIGH);
-    digitalWrite(motorD,LOW);
+    analogWrite(6,0);   
+    digitalWrite(11,HIGH);
+    digitalWrite(10,LOW);
+    analogWrite(9,180); 
+    digitalWrite(5,HIGH);
+    digitalWrite(8,LOW);
   }else if(vA1 < hA1 && vA2 < hA2){
     //療法白直進
-    analogWrite(PWM_motAB,235); 
-    digitalWrite(motorA,HIGH);
-    digitalWrite(motorB,LOW);
-    analogWrite(PWM_motCD,180); 
-    digitalWrite(motorC,HIGH);
-    digitalWrite(motorD,LOW);
+    analogWrite(6,235); 
+    digitalWrite(11,HIGH);
+    digitalWrite(10,LOW);
+    analogWrite(9,180); 
+    digitalWrite(5,HIGH);
+    digitalWrite(8,LOW);
   }else{
   }
     delay(20);
-    analogWrite(PWM_motAB,235); 
-    digitalWrite(motorA,HIGH);
-    digitalWrite(motorB,LOW);
-    analogWrite(PWM_motCD,180); 
-    digitalWrite(motorC,HIGH);
-    digitalWrite(motorD,LOW);
+    analogWrite(6,235); 
+    digitalWrite(11,HIGH);
+    digitalWrite(10,LOW);
+    analogWrite(9,180); 
+    digitalWrite(5,HIGH);
+    digitalWrite(8,LOW);
     delay(20);
 }

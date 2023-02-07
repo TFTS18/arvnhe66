@@ -2,5 +2,5 @@
     "board": "arduino:avr:uno",
     "port": "COM3",
     "output": "../ArduinoOutput",
-    "sketch": "latest_kensho\\latest_kensho.ino"
+    "sketch": "AMAE\\AMAE.ino"
 }

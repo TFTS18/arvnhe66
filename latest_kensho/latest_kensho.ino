@@ -1,9 +1,9 @@
-const int motorA = 8;
-const int motorB = 6;
-const int PWM_motAB = 9;
-const int motorC = 10;
-const int motorD = 5;
-const int PWM_motCD = 11;
+const int motorA = 11;
+const int motorB = 10;
+const int PWM_motAB = 6;
+const int motorC = 9;
+const int motorD = 8;
+const int PWM_motCD = 5;
 void setup(){
 pinMode(motorA,OUTPUT); 
 pinMode(motorB,OUTPUT); 
@@ -15,12 +15,12 @@ Serial.begin(9600);
 }
 
 void loop() {
-analogWrite(PWM_motAB,110); 
-digitalWrite(motorA,LOW);
+digitalWrite(motorC,LOW);
 digitalWrite(motorD,HIGH);
+analogWrite(PWM_motCD,300); 
 delay(1600);
-analogWrite(PWM_motAB,1000); 
-digitalWrite(motorA,HIGH);
+digitalWrite(motorC,HIGH);
 digitalWrite(motorD,LOW);
+analogWrite(PWM_motCD,300); 
 delay(1600);
 }
