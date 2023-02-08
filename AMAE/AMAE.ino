@@ -87,22 +87,24 @@ void loop() {
       digitalWrite(8,LOW);
   }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 < hA3){
       //B B B W ┤左90
-      analogWrite(11,30); 
+      delay(50);
+      analogWrite(11,50); 
       digitalWrite(6,HIGH);
       digitalWrite(10,LOW);
       analogWrite(9,170); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
-      delay(1400);
+      delay(3400);
   }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 < hA2 && vA3 < hA3){
-      //B B W W ┤右90
-      analogWrite(11,30); 
+      //B B W W ┤左90
+      delay(50):
+      analogWrite(11,50); 
       digitalWrite(6,HIGH);
       digitalWrite(10,LOW);
       analogWrite(9,170); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
-      delay(1400);
+      delay(3400);
   }else if(vA0 < hA0 && vA1 < hA1 && vA2 < hA2 && vA3 < hA3){
       //w w w w
       //現在調査中　適当なプログラムを入れている
@@ -121,10 +123,27 @@ void loop() {
         analogWrite(9,180); 
         digitalWrite(5,HIGH);
         digitalWrite(8,LOW); 
-        delay(1300) ;
+        delay(2600) ;
         MANKO = 1;
-        delay(5000);
-      }else if(MANKO == 1){
+      }if(MANKO == 1){ 
+      analogWrite(11,50); 
+      digitalWrite(6,HIGH);
+      digitalWrite(10,LOW);
+      analogWrite(9,170); 
+      digitalWrite(5,HIGH);
+      digitalWrite(8,LOW);
+      delay(3600);
+      MANKO = 2;
+      }else if(MANKO == 2){
+        analogWrite(11,0); 
+        digitalWrite(6,LOW);
+        digitalWrite(10,LOW);
+        analogWrite(9,0); 
+        digitalWrite(5,LOW);
+        digitalWrite(8,LOW);  
+        delay(1000);
+        MANKO = 3;
+      }else if(MANKO == 3){
         analogWrite(11,180); 
         digitalWrite(6,LOW);
         digitalWrite(10,HIGH);
@@ -132,7 +151,7 @@ void loop() {
         digitalWrite(5,LOW);
         digitalWrite(8,HIGH);  
         delay(1000);
-        MANKO = 2;
+        MANKO = 3;
       }else{
       }
   }else{
