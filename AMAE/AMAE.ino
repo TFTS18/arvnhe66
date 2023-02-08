@@ -11,6 +11,8 @@ int hA2 = 400;
 int hA1 = 400;
 int hA3 = 400;
 int hA0 = 400;
+int WILDSPEED = 170;
+int WILDSPEED2 = 51;
 void setup(){
 pinMode(6,OUTPUT); 
 pinMode(10,OUTPUT); 
@@ -53,10 +55,10 @@ void loop() {
      digitalWrite(8,LOW);
   }else if(vA0 < hA0 && vA1 < hA1 && vA2 >= hA2 && vA3 < hA3){
       //W W B W 右折 
-      analogWrite(11,170); 
+      analogWrite(11,WILDSPEED); 
       digitalWrite(6,HIGH);
       digitalWrite(10,LOW);
-      analogWrite(9,51); 
+      analogWrite(9,WILDSPEED2); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
   }else if(vA0 < hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 >= hA3){
@@ -79,10 +81,10 @@ void loop() {
      delay(200);
   }else if(vA0 < hA0 && vA1 >= hA1 && vA2 < hA2 && vA3 < hA3){
       //w b w w 左折
-      analogWrite(11,51);   
+      analogWrite(11,WILDSPEED2);   
       digitalWrite(6,HIGH);
       digitalWrite(10,LOW);
-      analogWrite(9,170); 
+      analogWrite(9,WILDSPEED1); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
   }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 < hA3){
@@ -97,6 +99,8 @@ void loop() {
       while(vA2 < hA2){
         vA1 = analogRead(A2);
         delay(20);
+        WILDSPEED = 85
+        WILDSPEED2 = 25
       }
   }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 < hA2 && vA3 < hA3){
       //B B W W ┤左90
@@ -110,6 +114,8 @@ void loop() {
       while(vA2 < hA2){
         vA2 = analogRead(A2);
         delay(20);
+        WILDSPEED = 85;
+        WILDSPEED2 = 25;
       }
   }else if(vA0 < hA0 && vA1 < hA1 && vA2 < hA2 && vA3 < hA3){
       //w w w w
@@ -135,6 +141,8 @@ void loop() {
         delay(10);
       }
         MANKO = 1;
+        WILDSPEED = 170;
+        WILDSPEED2 = 51;
       }if(MANKO == 1){ 
       analogWrite(11,60); 
       digitalWrite(6,HIGH);
