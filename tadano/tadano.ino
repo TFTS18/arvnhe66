@@ -1,5 +1,6 @@
 //4センサー 未完成 if文大量に書く8
 //閾値は後で変える
+//モーター 右は9 左はmotAB
 //vAxはセンサー　hAxは閾値
 int vA0 = 0;
 int MANKO = 0;
@@ -39,16 +40,16 @@ void loop() {
      Serial.println(vA3);
      Serial.println();
     TINPO = 0;
-    }else{
+  }else{
     TINPO = TINPO + 1;
-    }
+  }
   //モーター 左11　右9
   if (vA0 < hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 < hA3){
     //0白1黒2黒3白　
-     analogWrite(11,180); 
+     analogWrite(11,235); 
      digitalWrite(6,HIGH);
      digitalWrite(10,LOW);
-     analogWrite(9,180); 
+     analogWrite(9,235); 
      digitalWrite(5,HIGH);
      digitalWrite(8,LOW);
   }else if(vA0 < hA0 && vA1 < hA1 && vA2 >= hA2 && vA3 < hA3){
@@ -56,87 +57,29 @@ void loop() {
       analogWrite(11,170); 
       digitalWrite(6,HIGH);
       digitalWrite(10,LOW);
-      analogWrite(9,51); 
+      analogWrite(9,0); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
-  }else if(vA0 < hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 >= hA3){
-      //W B B B ├直進
-     analogWrite(11,180); 
-     digitalWrite(6,HIGH);
-     digitalWrite(10,LOW);
-     analogWrite(9,180); 
-     digitalWrite(5,HIGH);
-     digitalWrite(8,LOW);
-     delay(50);
-  }else if(vA0 < hA0 && vA1 < hA1 && vA2 >= hA2 && vA3 >= hA3){
-      //W W B B ├直進
-     analogWrite(11,180); 
-     digitalWrite(6,HIGH);
-     digitalWrite(10,LOW);
-     analogWrite(9,180); 
-     digitalWrite(5,HIGH);
-     digitalWrite(8,LOW);
-     delay(50);
   }else if(vA0 < hA0 && vA1 >= hA1 && vA2 < hA2 && vA3 < hA3){
       //w b w w 左折
-      analogWrite(11,51);   
+      analogWrite(11,0);   
       digitalWrite(6,HIGH);
       digitalWrite(10,LOW);
       analogWrite(9,170); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
   }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 < hA3){
-      //B B B W ┤左90
-      analogWrite(11,30); 
-      digitalWrite(6,HIGH);
-      digitalWrite(10,LOW);
-      analogWrite(9,170); 
-      digitalWrite(5,HIGH);
-      digitalWrite(8,LOW);
-      delay(1400);
-  }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 < hA2 && vA3 < hA3){
-      //B B W W ┤右90
-      analogWrite(11,30); 
-      digitalWrite(6,HIGH);
-      digitalWrite(10,LOW);
-      analogWrite(9,170); 
-      digitalWrite(5,HIGH);
-      digitalWrite(8,LOW);
-      delay(1400);
   }else if(vA0 < hA0 && vA1 < hA1 && vA2 < hA2 && vA3 < hA3){
       //w w w w
       //現在調査中　適当なプログラムを入れている
-      analogWrite(11,180); 
+      analogWrite(11,235); 
       digitalWrite(6,HIGH);
       digitalWrite(10,LOW);
-      analogWrite(9,180); 
+      analogWrite(9,235); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
-  }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 >= hA3){
-      //B B B B ここポイント
-      if(MANKO == 0){
-        analogWrite(11,180); 
-        digitalWrite(6,LOW);
-        digitalWrite(10,HIGH);
-        analogWrite(9,180); 
-        digitalWrite(5,HIGH);
-        digitalWrite(8,LOW); 
-        delay(1300) ;
-        MANKO = 1;
-        delay(5000);
-      }else if(MANKO == 1){
-        analogWrite(11,180); 
-        digitalWrite(6,LOW);
-        digitalWrite(10,HIGH);
-        analogWrite(9,180); 
-        digitalWrite(5,LOW);
-        digitalWrite(8,HIGH);  
-        delay(1000);
-        MANKO = 2;
-      }else{
-      }
   }else{
       delay(30);
   }
-  delay(30);
+  delay(50);
 }

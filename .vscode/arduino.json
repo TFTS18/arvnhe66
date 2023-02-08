@@ -2,5 +2,5 @@
     "board": "arduino:avr:uno",
     "port": "COM3",
     "output": "../ArduinoOutput",
-    "sketch": "DontMove\\DontMove.ino"
+    "sketch": "AMAE\\AMAE.ino"
 }
