@@ -67,7 +67,7 @@ void loop() {
      analogWrite(9,180); 
      digitalWrite(5,HIGH);
      digitalWrite(8,LOW);
-     delay(50);
+     delay(200);
   }else if(vA0 < hA0 && vA1 < hA1 && vA2 >= hA2 && vA3 >= hA3){
       //W W B B ├直進
      analogWrite(11,180); 
@@ -76,7 +76,7 @@ void loop() {
      analogWrite(9,180); 
      digitalWrite(5,HIGH);
      digitalWrite(8,LOW);
-     delay(50);
+     delay(200);
   }else if(vA0 < hA0 && vA1 >= hA1 && vA2 < hA2 && vA3 < hA3){
       //w b w w 左折
       analogWrite(11,51);   
@@ -87,27 +87,29 @@ void loop() {
       digitalWrite(8,LOW);
   }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 < hA3){
       //B B B W ┤左90
-      analogWrite(11,20); 
+      analogWrite(11,40); 
       digitalWrite(6,HIGH);
       digitalWrite(10,LOW);
-      analogWrite(9,100); 
+      analogWrite(9,70); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
       delay(1600);
       while(vA2 < hA2){
-        delay(30);
+        vA1 = analogRead(A2);
+        delay(20);
       }
   }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 < hA2 && vA3 < hA3){
       //B B W W ┤左90
-      analogWrite(11,20); 
+      analogWrite(11,40); 
       digitalWrite(6,HIGH);
       digitalWrite(10,LOW);
-      analogWrite(9,100); 
+      analogWrite(9,70); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
       delay(1600);
       while(vA2 < hA2){
-        delay(30);
+        vA2 = analogRead(A2);
+        delay(20);
       }
   }else if(vA0 < hA0 && vA1 < hA1 && vA2 < hA2 && vA3 < hA3){
       //w w w w
@@ -121,24 +123,32 @@ void loop() {
   }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 >= hA3){
       //B B B B ここポイント
       if(MANKO == 0){
-        analogWrite(11,180); 
-        digitalWrite(6,LOW);
-        digitalWrite(10,HIGH);
-        analogWrite(9,180); 
-        digitalWrite(5,HIGH);
-        digitalWrite(8,LOW); 
-        delay(2600) ;
-        MANKO = 1;
-      }if(MANKO == 1){ 
-      analogWrite(11,50); 
+      analogWrite(11,60); 
       digitalWrite(6,HIGH);
       digitalWrite(10,LOW);
-      analogWrite(9,170); 
-      digitalWrite(5,HIGH);
-      digitalWrite(8,LOW);
-      delay(3600);
-      MANKO = 2;
-      }else if(MANKO == 2){
+      analogWrite(9,60); 
+      digitalWrite(5,LOW);
+      digitalWrite(8,HIGH);
+      delay(3300);
+      while(vA1 < hA1){
+        vA1 = analogRead(A1);
+        delay(10);
+      }
+        MANKO = 1;
+      }if(MANKO == 1){ 
+      analogWrite(11,60); 
+      digitalWrite(6,HIGH);
+      digitalWrite(10,LOW);
+      analogWrite(9,60); 
+      digitalWrite(5,LOW);
+      digitalWrite(8,HIGH);
+      delay(400);
+      while(vA2 < hA2){
+        vA2 = analogRead(A2);
+        delay(10);
+      }
+      MANKO =2;
+      }if(MANKO == 2){ 
         analogWrite(11,0); 
         digitalWrite(6,LOW);
         digitalWrite(10,LOW);
@@ -146,8 +156,17 @@ void loop() {
         digitalWrite(5,LOW);
         digitalWrite(8,LOW);  
         delay(1000);
-        MANKO = 3;
+      MANKO =3;
       }else if(MANKO == 3){
+      analogWrite(11,40); 
+      digitalWrite(6,LOW);
+      digitalWrite(10,HIGH);
+      analogWrite(9,40); 
+      digitalWrite(5,LOW);
+      digitalWrite(8,HIGH);
+      delay(1600);
+        MANKO = 3;
+      }else if(MANKO == 4){
         analogWrite(11,180); 
         digitalWrite(6,LOW);
         digitalWrite(10,HIGH);
@@ -155,11 +174,11 @@ void loop() {
         digitalWrite(5,LOW);
         digitalWrite(8,HIGH);  
         delay(1000);
-        MANKO = 3;
+        MANKO = 4;
       }else{
       }
   }else{
       delay(30);
   }
-  delay(30);
+  delay(20);
 }
