@@ -87,24 +87,28 @@ void loop() {
       digitalWrite(8,LOW);
   }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 < hA3){
       //B B B W ┤左90
-      delay(50);
-      analogWrite(11,50); 
+      analogWrite(11,20); 
       digitalWrite(6,HIGH);
       digitalWrite(10,LOW);
-      analogWrite(9,170); 
+      analogWrite(9,100); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
-      delay(3400);
+      delay(1600);
+      while(vA2 < hA2){
+        delay(30);
+      }
   }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 < hA2 && vA3 < hA3){
       //B B W W ┤左90
-      delay(50):
-      analogWrite(11,50); 
+      analogWrite(11,20); 
       digitalWrite(6,HIGH);
       digitalWrite(10,LOW);
-      analogWrite(9,170); 
+      analogWrite(9,100); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
-      delay(3400);
+      delay(1600);
+      while(vA2 < hA2){
+        delay(30);
+      }
   }else if(vA0 < hA0 && vA1 < hA1 && vA2 < hA2 && vA3 < hA3){
       //w w w w
       //現在調査中　適当なプログラムを入れている
