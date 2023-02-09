@@ -254,10 +254,10 @@ void loop() {
         delay(300);
         MANKO = 1;
       }else if(MANKO == 5){ 
-      analogWrite(11,940); 
+      analogWrite(11,94); 
       digitalWrite(6,LOW);
       digitalWrite(10,HIGH);
-      analogWrite(9,995); 
+      analogWrite(9,99); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
       delay(10000);
