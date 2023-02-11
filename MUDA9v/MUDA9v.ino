@@ -11,6 +11,10 @@ int hA2 = 252;
 int hA1 = 252;
 int hA3 = 250;
 int hA0 = 250;
+int pA0 = 0;
+int pA1 = 0;
+int pA2 = 0;
+int pA3 = 0;
 void setup(){
 pinMode(6,OUTPUT); 
 pinMode(10,OUTPUT); 
@@ -222,7 +226,33 @@ void loop() {
       MANKO = 6;
       }else{
       }
+  }else if(vA0 < hA0 && vA1 < hA1 && vA2 < hA2 && vA3 < hA3){
+      //W W W W
+      if(hA1 && pA2 >= hA2){
+      //W W B W 右折 
+      analogWrite(11,92); 
+      digitalWrite(6,HIGH);
+      digitalWrite(10,LOW);
+      analogWrite(9,60); 
+      digitalWrite(5,HIGH);
+      digitalWrite(8,LOW);
+      delay(150);
+      }else if(pA1 < hA1 && pA2 >= hA2){
+      //W B W W 左折 
+      analogWrite(11,60); 
+      digitalWrite(6,HIGH);
+      digitalWrite(10,LOW);
+      analogWrite(9,115); 
+      digitalWrite(5,HIGH);
+      digitalWrite(8,LOW);
+      delay(150);
+      }else{
+      }
   }else{
   }
   delay(2);
+  pA0 = analogRead(A0);
+  pA1 = analogRead(A1);
+  pA2 = analogRead(A2);
+  pA3 = analogRead(A3);
 }
