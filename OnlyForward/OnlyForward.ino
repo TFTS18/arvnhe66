@@ -20,31 +20,11 @@ Serial.begin(9600);
 }
 
 void loop() {
-     vA0 = analogRead(A0);
-     vA1 = analogRead(A1);
-     vA2 = analogRead(A2);
-     vA3 = analogRead(A3);
-   if(TINPO == 60){
-     Serial.print("A0= "); 
-     Serial.print(vA0);
-     Serial.println();
-     Serial.print("A1== "); 
-     Serial.println(vA1);
-     Serial.print("A2= "); 
-     Serial.print(vA2);
-     Serial.println();
-     Serial.print("A3== "); 
-     Serial.println(vA3);
-     Serial.println();
-    TINPO = 0;
-  }else{
-    TINPO = TINPO + 1;
-  }
   //モーター 左11　右9
-     analogWrite(11,235); 
+     analogWrite(11,150); 
      digitalWrite(6,HIGH);
      digitalWrite(10,LOW);
-     analogWrite(9,235); 
+     analogWrite(9,190); 
      digitalWrite(5,HIGH);
      digitalWrite(8,LOW);
      delay(50);
