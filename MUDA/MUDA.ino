@@ -58,6 +58,15 @@ void loop() {
         vA2 = analogRead(A2);
         delay(5);
       }
+  }else if(vA0 
+  }else if(vA0 < hA0 && vA1 < hA1 && vA2 >= hA2 && vA3 < hA3){
+      //W W B W 右折 
+      analogWrite(11,92); 
+      digitalWrite(6,HIGH);
+      digitalWrite(10,LOW);
+      analogWrite(9,60); 
+      digitalWrite(5,HIGH);
+      digitalWrite(8,LOW);
   }else if(vA0 < hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 >= hA3){
       //W B B B ├停止直進
      analogWrite(11,100); 
