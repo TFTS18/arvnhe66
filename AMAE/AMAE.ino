@@ -219,7 +219,7 @@ void loop() {
       }
   }else if(vA0 < hA0 && vA1 < hA1 && vA2 < hA2 && vA3 < hA3){
       //W W W W
-      if(pA0 < hA0 && pA1 < hA1 && pA2 >= hA2 && pA3 < hA3){
+      if(hA1 && pA2 >= hA2){
       //W W B W 右折 
       analogWrite(11,92); 
       digitalWrite(6,HIGH);
@@ -228,7 +228,7 @@ void loop() {
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
       delay(150);
-      }else if(pA0 < hA0 && pA1 < hA1 && pA2 >= hA2 && pA3 < hA3){
+      }else if(pA1 < hA1 && pA2 >= hA2){
       //W B W W 左折 
       analogWrite(11,60); 
       digitalWrite(6,HIGH);
