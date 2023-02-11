@@ -23,63 +23,7 @@ Serial.begin(9600);
 }
 
 void loop() {
-     vA0 = analogRead(A0);
-     vA1 = analogRead(A1);
-     vA2 = analogRead(A2);
-     vA3 = analogRead(A3);
-   if(TINPO == 60){
-     Serial.print("A0= "); 
-     Serial.print(vA0);
-     Serial.println();
-     Serial.print("A1== "); 
-     Serial.println(vA1);
-     Serial.print("A2= "); 
-     Serial.print(vA2);
-     Serial.println();
-     Serial.print("A3== "); 
-     Serial.println(vA3);
-     Serial.println();
-    TINPO = 0;
-  }else{
-    TINPO = TINPO + 1;
-  }
-  //モーター 左11　右9
-  if (vA0 < hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 < hA3){
-    //0白1黒2黒3白　
-     analogWrite(11,235); 
-     digitalWrite(6,HIGH);
-     digitalWrite(10,LOW);
-     analogWrite(9,235); 
-     digitalWrite(5,HIGH);
-     digitalWrite(8,LOW);
-  }else if(vA0 < hA0 && vA1 < hA1 && vA2 >= hA2 && vA3 < hA3){
-      //W W B W 右折 
-      analogWrite(11,170); 
-      digitalWrite(6,HIGH);
-      digitalWrite(10,LOW);
-      analogWrite(9,0); 
-      digitalWrite(5,HIGH);
-      digitalWrite(8,LOW);
-  }else if(vA0 < hA0 && vA1 >= hA1 && vA2 < hA2 && vA3 < hA3){
-      //w b w w 左折
-      analogWrite(11,0);   
-      digitalWrite(6,HIGH);
-      digitalWrite(10,LOW);
-      analogWrite(9,170); 
-      digitalWrite(5,HIGH);
-      digitalWrite(8,LOW);
-  }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 < hA3){
-  }else if(vA0 < hA0 && vA1 < hA1 && vA2 < hA2 && vA3 < hA3){
-      //w w w w
-      //現在調査中　適当なプログラムを入れている
-      analogWrite(11,235); 
-      digitalWrite(6,HIGH);
-      digitalWrite(10,LOW);
-      analogWrite(9,235); 
-      digitalWrite(5,HIGH);
-      digitalWrite(8,LOW);
-  }else{
-      delay(30);
-  }
-  delay(50);
+vA0 = 10 - analogRead(A0);
+Serial.print(vA0);
+delay(1000);
 }

@@ -21,11 +21,18 @@ Serial.begin(9600);
 
 void loop() {
   //モーター 左11　右9
-     analogWrite(11,150); 
+     analogWrite(11,100); 
      digitalWrite(6,HIGH);
      digitalWrite(10,LOW);
-     analogWrite(9,190); 
+     analogWrite(9,120); 
      digitalWrite(5,HIGH);
      digitalWrite(8,LOW);
-     delay(50);
+     delay(3000);
+     analogWrite(11,100); 
+     digitalWrite(6,LOW);
+     digitalWrite(10,HIGH);
+     analogWrite(9,100); 
+     digitalWrite(5,LOW);
+     digitalWrite(8,HIGH);
+     delay(3000);
 }
