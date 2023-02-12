@@ -23,7 +23,7 @@ pinMode(8,OUTPUT);
 pinMode(11,OUTPUT); 
 pinMode(9,OUTPUT); 
 Serial.begin(9600);
-delay(20000);
+delay(10000);
 }
 
 void loop() {
@@ -53,10 +53,10 @@ void loop() {
       digitalWrite(8,LOW);
   }else if(vA0 < hA0 && vA1 < hA1 && vA2 >= hA2 && vA3 < hA3){
       //W W B W 右折 
-      analogWrite(11,82); 
+      analogWrite(11,80); 
       digitalWrite(6,HIGH);
       digitalWrite(10,LOW);
-      analogWrite(9,50); 
+      analogWrite(9,52); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
   }else if(vA0 < hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 >= hA3){
@@ -67,9 +67,11 @@ void loop() {
      analogWrite(9,120); 
      digitalWrite(5,HIGH);
      digitalWrite(8,LOW);
-     delay(400);
+     delay(300);
      if(MANKO == 5){
       MANKO = 6;
+     }else if(MANKO == 1){
+      MANKO == 2;
      }
   }else if(vA0 < hA0 && vA1 < hA1 && vA2 >= hA2 && vA3 >= hA3){
       //W W B B
@@ -77,10 +79,10 @@ void loop() {
       //W W W B
   }else if(vA0 < hA0 && vA1 >= hA1 && vA2 < hA2 && vA3 < hA3){
       //w b w w 左折
-      analogWrite(11,50);   
+      analogWrite(11,52);   
       digitalWrite(6,HIGH);
       digitalWrite(10,LOW);
-      analogWrite(9,99); 
+      analogWrite(9,96); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
   }else if(vA0 >= hA0 && vA1 >= hA1 && vA2 >= hA2 && vA3 < hA3){
@@ -91,7 +93,7 @@ void loop() {
      analogWrite(9,40); 
      digitalWrite(5,HIGH);
      digitalWrite(8,LOW);
-    delay(100);
+    delay(60);
      analogWrite(11,0); 
      digitalWrite(6,LOW);
      digitalWrite(10,LOW);
@@ -146,13 +148,13 @@ void loop() {
       }
         MANKO = 4;
       }else if(MANKO == 4){ 
-      analogWrite(11,60); 
+      analogWrite(11,50); 
       digitalWrite(6,HIGH);
       digitalWrite(10,LOW);
       analogWrite(9,90); 
-      digitalWrite(5,LOW);
-      digitalWrite(8,HIGH);
-      delay(1600);
+      digitalWrite(5,HIGH);
+      digitalWrite(8,LOW);
+      delay(1000);
       while(vA1 < hA1){
         vA1 = analogRead(A1);
         delay(3);
@@ -165,13 +167,13 @@ void loop() {
         analogWrite(9,120); 
         digitalWrite(5,HIGH);
         digitalWrite(8,LOW);  
-        delay(500);
+        delay(300);
         MANKO = 2;
       }else if(MANKO == 2){
-        analogWrite(11,30); 
+        analogWrite(11,80); 
         digitalWrite(6,LOW);
         digitalWrite(10,HIGH);
-        analogWrite(9,30); 
+        analogWrite(9,80); 
         digitalWrite(5,LOW);
         digitalWrite(8,HIGH);  
         delay(2000);
@@ -181,7 +183,7 @@ void loop() {
         analogWrite(9,120); 
         digitalWrite(5,HIGH);
         digitalWrite(8,LOW);  
-        delay(1200);
+        delay(2000);
         MANKO = 3;
       }else if(MANKO == 0){
       analogWrite(11,100); 
@@ -190,7 +192,7 @@ void loop() {
       analogWrite(9,120); 
       digitalWrite(5,HIGH);
       digitalWrite(8,LOW);
-      delay(400);
+      delay(300);
         MANKO = 1;
       }else if(MANKO == 5){
       analogWrite(11,100); 

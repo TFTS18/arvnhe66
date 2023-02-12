@@ -28,11 +28,4 @@ void loop() {
      digitalWrite(5,HIGH);
      digitalWrite(8,LOW);
      delay(3000);
-     analogWrite(11,100); 
-     digitalWrite(6,LOW);
-     digitalWrite(10,HIGH);
-     analogWrite(9,100); 
-     digitalWrite(5,LOW);
-     digitalWrite(8,HIGH);
-     delay(3000);
 }
